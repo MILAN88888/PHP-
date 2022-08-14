@@ -17,7 +17,7 @@ include('connection.php');
             margin-left: 30%;
         }
         #container{
-            background-color: blue;
+            background-color: #fda4af;
             width: 500px;
             text-align: center;    
         }
@@ -27,8 +27,11 @@ include('connection.php');
             color: green;
         }
         #container1{
-            background-color: red;
+            background-color: #bbf7d0;
             width: 500px;    
+        }
+        #tbl,tr,th,td{
+            border: 1px solid whitesmoke;
         }
         th 
         {
@@ -63,7 +66,7 @@ include('connection.php');
                 ?>
             <table id="tbl"> 
                 <?php while($row=mysqli_fetch_assoc($res)){ ?> 
-            <tr id="row<?php echo $row['id'] ?>">
+            <tr id="row<?php echo $row['id'] ?>"> 
                 <th><?php echo $row['title']; ?></th>
                 <td><a href="javascript:void(0);" onclick=" del('<?php echo $row['id']; ?>')" > delete </a></td> 
             </tr>
@@ -112,7 +115,7 @@ include('connection.php');
                         {
                             var obj = $.parseJSON(res);
                             var id = obj.id;
-                            $('#tbl').prepend('<tr id="row'+obj.id+'" ><th>'+title+'</th><td><a href="javascript:void(0);" onclick="del('+obj.id+')">delete</a></td></tr>');
+                            $('#tbl').append('<tr id="row'+obj.id+'" ><th>'+title+'</th><td><a href="javascript:void(0);" onclick="del('+obj.id+')">delete</a></td></tr>');
                             $('#error').html(obj.error);
                         }
                     }
