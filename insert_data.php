@@ -57,7 +57,7 @@ include('connection.php');
     </div>    
 
 <script>
-$('email').mouseenter(function()
+$('email').onchange(function()
 {
     var exitEmail=$('email').val();
     $.ajax(
@@ -67,7 +67,7 @@ $('email').mouseenter(function()
             data : 'email='+exitEmail,
             success : function(res)
             {
-                $('erroremail').html('res');
+                $('#erroremail').html('res');
             
             }
         }
